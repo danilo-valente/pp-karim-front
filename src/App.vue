@@ -1,50 +1,30 @@
 <template>
-    <div id="app">
-        <div class="content">
-            <div class="chat-container">
-                <Chat v-if="visible"
-                      :participants="participants"
-                      :myself="myself"
-                      :messages="messages"
-                      :chat-title="chatTitle"
-                      :placeholder="placeholder"
-                      :colors="colors"
-                      :border-style="borderStyle"
-                      :hide-close-button="hideCloseButton"
-                      :close-button-icon-size="closeButtonIconSize"
-                      :submit-icon-size="submitIconSize"
-                      :submit-image-icon-size="submitImageIconSize"
-                      :load-more-messages="toLoad.length > 0 ? loadMoreMessages : null"
-                      :async-mode="asyncMode"
-                      :scroll-bottom="scrollBottom"
-                      :display-header="true"
-                      :send-images="true"
-                      :profile-picture-config="profilePictureConfig"
-                      :timestamp-config="timestampConfig"
-                      :link-options="linkOptions"
-                      :accept-image-types="'.png, .jpeg'"
-                      @onImageClicked="onImageClicked"
-                      @onImageSelected="onImageSelected"
-                      @onMessageSubmit="onMessageSubmit"
-                      @onType="onType"
-                      @onClose="onClose('param value')"/>
-            </div>
-            <div class="external-controller">
-                <div class="controller-btn-container">
-                    <button class="btn-message" @click="addMessage">Add menssage</button>
-                    <button class="btn-participant" @click="addParticipant">Add participant</button>
-                    <button class="btn-participant" @click="changeAllProps">Change All Props</button>
-                </div>
-                <div class="message-list">
-                    <ol>
-                        <li v-for="(message, index) in messages" :key="index">
-                            {{message.content}}
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
+    <Chat v-if="visible"
+          :participants="participants"
+          :myself="myself"
+          :messages="messages"
+          :chat-title="chatTitle"
+          :placeholder="placeholder"
+          :colors="colors"
+          :border-style="borderStyle"
+          :hide-close-button="hideCloseButton"
+          :close-button-icon-size="closeButtonIconSize"
+          :submit-icon-size="submitIconSize"
+          :submit-image-icon-size="submitImageIconSize"
+          :load-more-messages="toLoad.length > 0 ? resolve => resolve() : null"
+          :async-mode="asyncMode"
+          :scroll-bottom="scrollBottom"
+          :display-header="true"
+          :send-images="true"
+          :profile-picture-config="profilePictureConfig"
+          :timestamp-config="timestampConfig"
+          :link-options="linkOptions"
+          :accept-image-types="'.png, .jpeg'"
+          @onImageClicked="onImageClicked"
+          @onImageSelected="onImageSelected"
+          @onMessageSubmit="onMessageSubmit"
+          @onType="onType"
+          @onClose="onClose('param value')"/>
 </template>
 
 <script>
@@ -76,54 +56,54 @@
                     profilePicture: 'https://lh3.googleusercontent.com/-G1d4-a7d_TY/AAAAAAAAAAI/AAAAAAAAAAA/AAKWJJPez_wX5UCJztzEUeCxOd7HBK7-jA.CMID/s83-c/photo.jpg'
                 },
                 messages: [
-                    {
-                        content: "Really?! I don't care! Haha",
-                        participantId: 1,
-                        timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
-                        uploaded: true,
-                        viewed: true,
-                        type: 'text'
-                    },
-                    {
-                        content: "Really?! I don't care! Haha",
-                        participantId: 1,
-                        timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
-                        uploaded: true,
-                        viewed: true,
-                        type: 'text'
-                    },
-                    {
-                        content: "Really?! I don't care! Haha",
-                        participantId: 1,
-                        timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
-                        uploaded: true,
-                        viewed: true,
-                        type: 'text'
-                    },
-                    {
-                        content: "Hey, Jhon Doe! How are you today",
-                        participantId: 1,
-                        timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
-                        uploaded: true,
-                        viewed: true,
-                        type: 'text'
-                    },
-                    {
-                        content: "Hey, Adam! I'm felling really fine this evening.",
-                        participantId: 3,
-                        timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
-                        uploaded: true,
-                        viewed: true,
-                        type: 'text'
-                    },
-                    {
-                        content: "Really?! I don't care! Haha www.google.com",
-                        participantId: 1,
-                        timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
-                        uploaded: true,
-                        viewed: true,
-                        type: 'text'
-                    },
+                    // {
+                    //     content: "Really?! I don't care! Haha",
+                    //     participantId: 1,
+                    //     timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
+                    //     uploaded: true,
+                    //     viewed: true,
+                    //     type: 'text'
+                    // },
+                    // {
+                    //     content: "Really?! I don't care! Haha",
+                    //     participantId: 1,
+                    //     timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
+                    //     uploaded: true,
+                    //     viewed: true,
+                    //     type: 'text'
+                    // },
+                    // {
+                    //     content: "Really?! I don't care! Haha",
+                    //     participantId: 1,
+                    //     timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
+                    //     uploaded: true,
+                    //     viewed: true,
+                    //     type: 'text'
+                    // },
+                    // {
+                    //     content: "Hey, Jhon Doe! How are you today",
+                    //     participantId: 1,
+                    //     timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
+                    //     uploaded: true,
+                    //     viewed: true,
+                    //     type: 'text'
+                    // },
+                    // {
+                    //     content: "Hey, Adam! I'm felling really fine this evening.",
+                    //     participantId: 3,
+                    //     timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
+                    //     uploaded: true,
+                    //     viewed: true,
+                    //     type: 'text'
+                    // },
+                    // {
+                    //     content: "Really?! I don't care! Haha www.google.com",
+                    //     participantId: 1,
+                    //     timestamp: {year: 2012, month: 3, day: 5, hour: 20, minute: 10, second: 3, millisecond: 123},
+                    //     uploaded: true,
+                    //     viewed: true,
+                    //     type: 'text'
+                    // },
                 ],
                 chatTitle: 'My chat title',
                 placeholder: 'send your message',
@@ -234,6 +214,28 @@
                 }
             }
         },
+        async created() {
+          const response = await fetch('http://localhost:3001/1/messages', {
+            method: 'GET',
+            headers: {
+              'Content-type': 'application/json'
+            }
+          });
+
+          const messages = await response.json();
+
+          //Make sure the loaded messages are also added to our local messages copy or they will be lost
+          this.messages.push(...messages.map(({ text, timestamp }) => ({
+                content: text,
+                participantId: 1,
+                timestamp: timestamp,
+                uploaded: true,
+                viewed: true,
+                type: 'text'
+          })));
+
+          this.toLoad = [];
+        },
         methods: {
             // eslint-disable-next-line
             onType: function (e) {
@@ -248,7 +250,18 @@
                     this.toLoad = [];
                 }, 1000);
             },
-            onMessageSubmit(message) {
+            async onMessageSubmit(message) {
+
+                await fetch('http://localhost:3001/1/messages', {
+                  method: 'POST',
+                  headers: {
+                    'Content-type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    text: message.content
+                  })
+                });
+
                 /*
                 * example simulating an upload callback.
                 * It's important to notice that even when your message wasn't send
@@ -256,14 +269,14 @@
                 */
                 this.messages.push(message);
 
-                /*
-                * you can update message state after the server response
-                */
-                // timeout simulating the request
-                setTimeout(() => {
-                    message.uploaded = true
-                    message.viewed = true
-                }, 2000)
+                // /*
+                // * you can update message state after the server response
+                // */
+                // // timeout simulating the request
+                // setTimeout(() => {
+                //     message.uploaded = true
+                //     message.viewed = true
+                // }, 2000)
             },
             onClose(param) {
                 console.log(param)
